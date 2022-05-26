@@ -97,3 +97,6 @@ Instala
     yarn add sass-loader -D
     yarn add node-sass -D
 ```
+
+https://app.rocketseat.com.br/discover/course/especializar-react/especializar-react/importando-arquivos-css-1
+(arquivo global css)

@@ -9,9 +9,11 @@ Por convenção, cada componente fica em um arquivo (js ou jsx) diferente.
 
 **Propriedades**
 
-Um componente pode acessar informações de um outro componente *parent* através do comando *props*.
+As propriedades pertencem aos componentes e preenchem eles. Um componente pode acessar informações de um outro componente *parent* através do comando *props*.
 
 **Estados**
+
+É como uma variável cuja mudança de valor gera uma nova renderização, refletindo na aplicação.
 
 **Imultabilidade**
 
@@ -28,3 +30,5 @@ Recebe dois parâmentros: *qual função* vai ser executada e *quando* vai ser e
 Por exemplo, o segundo parâmentro pode receber uma variável e, sempre que ela mudar, o useEffect roda a função presente no primeiro parâmetro. Portanto, se o segundo parâmetro estiver vazio, a função só vai ser executada uma vez.
 
 PRESTE ATENÇÃO para não deixar o segundo parâmetro vazio ou colocar os dois parâmetros em torno de uma mesma variável, isso faz com que o useEffect entre em loop.
+
+**Chave única Key**
