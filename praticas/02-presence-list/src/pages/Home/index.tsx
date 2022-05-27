@@ -3,10 +3,15 @@ import './styles.scss';
 
 import { Card } from '../../components/Card';
 
+interface StudantCards {
+    name: string;
+    time: string;
+}
+
 export function Home() {
 
-    const [studantName, setStudantName] = useState();
-    const [studants, setStudants] = useState([]);
+    const [studantName, setStudantName] = useState("");
+    const [studants, setStudants] = useState<StudantCards[]>([]);
     const [user, setUser] = useState({ name: '', avatar: '' });
 
     function handleAddStudant() {
@@ -54,7 +59,7 @@ export function Home() {
             {
                 studants.map(studant => (
                     <Card
-                        key={studant.name}
+                        key={studant.time}
                         name={studant.name}
                         time={studant.time}
                     />)
