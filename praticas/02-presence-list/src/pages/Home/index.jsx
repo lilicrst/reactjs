@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.scss';
 
 import { Card } from '../../components/Card';
@@ -7,6 +7,7 @@ export function Home() {
 
     const [studantName, setStudantName] = useState();
     const [studants, setStudants] = useState([]);
+    const [user, setUser] = useState({ name: '', avatar: '' });
 
     function handleAddStudant() {
         const newStudant = {
@@ -21,9 +22,26 @@ export function Home() {
         setStudants(prevState => [...prevState, newStudant]);
     }
 
+    useEffect(() => {
+        fetch('https://api.github.com/users/lilicrst')
+            .then(response => response.json())
+            .then(data => {
+                setUser({
+                    name: data.name,
+                    avatar: data.avatar_url,
+                })
+            })
+    }, []);
+
     return (
         <section className="container">
-            <h1>Presence List</h1>
+            <header>
+                <h1>Presence List</h1>
+                <div>
+                    <strong>{user.name}</strong>
+                    <img src={user.avatar} alt="Foto de perfil" />
+                </div>
+            </header>
             <input
                 type="text"
                 placeholder='Type the name...'

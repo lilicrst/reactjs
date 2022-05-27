@@ -22,12 +22,19 @@ Esse princípio diz que não podemos alterar o valor de uma variável, devemos s
 Hoots
 ---
 
+No react, tudo é baseado em funções
+
 **useState**
 
 **useEffect**
-Recebe dois parâmentros: *qual função* vai ser executada e *quando* vai ser executada. Chamamos o segundo parâmetro de *dependências*.
 
-Por exemplo, o segundo parâmentro pode receber uma variável e, sempre que ela mudar, o useEffect roda a função presente no primeiro parâmetro. Portanto, se o segundo parâmetro estiver vazio, a função só vai ser executada uma vez.
+`useEffect(() => {}, []);`
+
+`useEffect(() => {corpo do useEffect / ações que vão ser executadas}, [array de dependências]);`
+
+Recebe dois parâmentros: *qual função* vai ser executada e *quando* vai ser executada. A função do corpo sempre é executada quando os componentes são renderizados, ela não precisa ser chamada.
+
+Chamamos o segundo parâmetro de *dependências*. Sempre que o estado da dependência mudar, o useEffect roda a função presente no primeiro parâmetro. Se o segundo parâmetro estiver vazio, a função só vai ser executada uma vez.
 
 PRESTE ATENÇÃO para não deixar o segundo parâmetro vazio ou colocar os dois parâmetros em torno de uma mesma variável, isso faz com que o useEffect entre em loop.
 
