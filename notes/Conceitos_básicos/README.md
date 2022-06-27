@@ -1,11 +1,20 @@
 Conceitos básicos no React
 ---
 
+**DOM**
+Document Object Model
+
+**Root**
+Elemento raiz no html da página SPA (single page aplication) onde todos os componentes vão ser renderizados.
+
 **Componentes**
 
 No react, quando os componentes se repetem ou um mesmo tipo de objeto é mostrado várias vezes na tela, nós criamos um componente e só replicamos ele.
 
-Por convenção, cada componente fica em um arquivo (js ou jsx) diferente.
+Por convenção, cada componente fica em um arquivo (js ou jsx) diferente. Em resumo, são funções que retornam html.
+
+**.jsx**
+Extensão que aceita a junção do JavaScript com o HTML.
 
 **Propriedades**
 
