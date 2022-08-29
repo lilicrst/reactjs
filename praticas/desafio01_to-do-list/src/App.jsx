@@ -1,8 +1,13 @@
-import { List } from './List'
+import { Header } from './components/Header';
+import { List } from './List';
+
+import './global.css';
 
 export function App() {
   return (
     <div>
+      <Header />
+
       <List
         check="x"
         content="Construir header dessa aplicação"
@@ -16,5 +21,5 @@ export function App() {
         content="Construir TextArea dessa aplicação"
       />
     </div>
-  )
+  );
 }

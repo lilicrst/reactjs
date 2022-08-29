@@ -4,5 +4,5 @@ export function List(props) {
       <h5>{ props.check }</h5>
       <p>{props.content}</p>
     </div>
-  )
+  );
 }
