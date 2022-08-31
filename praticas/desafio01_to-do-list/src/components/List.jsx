@@ -2,9 +2,18 @@ import styles from './List.module.css';
 
 export function List(props) {
   return (
-    <div>
-      <h5>{ props.check }</h5>
-      <p>{props.content}</p>
+    <div className={styles.list}>
+      <header>
+        <div className={styles.createdTaskInfo}>
+          <strong>Tarefas criadas</strong>
+          <span className={styles.counter}>5</span>
+        </div>
+        <div className={styles.completeTaskInfo}>
+          <strong>Concluídas</strong>
+          <span className={styles.counter}>2 de 5</span>
+        </div>
+      </header>
+      
     </div>
   );
 }
