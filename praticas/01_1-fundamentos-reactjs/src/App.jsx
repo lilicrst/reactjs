@@ -16,7 +16,7 @@ const posts = [
     content: [
       { type: 'paragraph', content: 'Fala galeraa 👋' },
       { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },
-      { type: 'link', content: 'jane.design/doctorcare' },       
+      { type: 'link', content: 'jane.design/doctorcare' },
     ],
     publishedAt: new Date('2022-08-18 15:07:00'),
   },
@@ -30,7 +30,7 @@ const posts = [
     content: [
       { type: 'paragraph', content: 'Eae!' },
       { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu GitHub. É um projeto que fiz no NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀' },
-      { type: 'link', content: 'jane.design/doctorcare' },       
+      { type: 'link', content: 'jane.design/doctorcare' },
     ],
     publishedAt: new Date('2022-07-05 19:40:00'),
   }
@@ -45,7 +45,7 @@ export function App() {
         <main>
           {posts.map(post => {
             return (
-              <Post 
+              <Post
                 key={post.id}
                 author={post.author}
                 content={post.content}
