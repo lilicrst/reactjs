@@ -33,4 +33,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  transition: background-color 0.1s;
+}
+
+.taskForm footer:hover {
+  background: var(--blue-200);
 }
