@@ -20,6 +20,12 @@
   border-radius: 8px;
   font-size: 1rem;
   padding: 1rem;
+
+  resize: none;
+}
+
+.taskForm textarea:focus {
+  color: var(--gray-100);
 }
 
 .taskForm footer {
