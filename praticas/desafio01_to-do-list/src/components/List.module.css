@@ -1,5 +1,6 @@
 .list {
   margin-top: 4rem;
+  display: grid;
 }
 
 .list > header {
@@ -7,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 1.5rem;
 }
 
 .list > header span {

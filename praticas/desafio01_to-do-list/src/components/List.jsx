@@ -1,4 +1,5 @@
 import styles from './List.module.css';
+import { Task } from './Task';
 
 export function List(props) {
   return (
@@ -13,7 +14,10 @@ export function List(props) {
           <span className={styles.counter}>2 de 5</span>
         </div>
       </header>
-      
+
+    <Task />
+    <Task />
+
     </div>
   );
 }
