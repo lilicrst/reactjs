@@ -6,12 +6,14 @@ export function Task() {
   return (
     <div className={styles.task}>
       <button title='Marcar como concluída' >
-        <Circle className={styles.circleIcon} size={23} weight="bold" />
+        <Circle className={styles.circleIcon} size={22} weight="bold" />
       </button>
       <p>
-        Ajeitar o duotone desse ícone. Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
+        TODO colorido. Ajeitar o duotone desse ícone. Integer urna interdum massa libero auctor neque turpis turpis semper.
       </p>
-      <Trash className={styles.trashIcon} size={24} weight="light" />
+      <button>
+        <Trash className={styles.trashIcon} size={24} weight="light" />
+      </button>
     </div>
   );
 }

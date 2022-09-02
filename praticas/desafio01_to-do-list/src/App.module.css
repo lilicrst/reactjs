@@ -13,6 +13,20 @@
   gap: 0.5rem;
 }
 
+@media (max-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+  .taskForm {
+    grid-template-columns: 1fr 90px;
+  }
+
+  .wrapper {
+    width: 100%;
+  }
+
+}
+
 .taskForm textarea {
   background: var(--gray-500);
   color: var(--gray-300);
