@@ -6,12 +6,19 @@ import './global.css';
 import styles from './App.module.css';
 
 export function App() {
+
+  function handleCreateNewTask() {
+    event.preventDefault()
+
+    console.log("submit")
+  }
+
   return (
     <div>
       <Header />
 
       <div className={styles.wrapper}>
-        <form className={styles.taskForm}>
+        <form onSubmit={handleCreateNewTask} className={styles.taskForm}>
 
           <textarea 
           name="task"
