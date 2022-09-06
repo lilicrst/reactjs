@@ -1,24 +1,30 @@
+import { v4 as uuidv4 } from 'uuid';
 import styles from './List.module.css';
 import { Task } from './Task';
 
 const tasks = [
   {
-    id: 1,
+    id: uuidv4(),
     title: 'Problema "Each child in a list should have a unique key prop" (ver no console)',
     isComplete: false
   },
   {
-    id: 2,
+    id: uuidv4(),
+    title: 'Unir "list" a "app"',
+    isComplete: false
+  },
+  {
+    id: uuidv4(),
     title: "Deixar css do checkIcon de acordo com o estado",
     isComplete: false
   },
   {
-    id: 3,
+    id: uuidv4(),
     title: "Fazer css da lista vazia",
     isComplete: false
   },
   {
-    id: 4,
+    id: uuidv4(),
     title: "Fazer js das tasks e dos contadores",
     isComplete: false
   }
