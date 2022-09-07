@@ -30,18 +30,23 @@ export function App(props) {
       },
       {
         id: uuidv4(),
-        title: "Fazer js das tasks e dos contadores",
+        title: "Fazer js dos contadores",
         isComplete: false
       }
     ]
   )
 
+  const [newTaskText, setNewTaskText] = useState('')
+
   function handleCreateNewTask() {
     event.preventDefault()
-
-    const newTaskText = event.target.task.value
-
+    
     setTasks([...tasks, {id: uuidv4(), title: newTaskText, isComplete: false}]);
+    setNewTaskText('');
+  }
+
+  function handleNewTaskInput() {
+    setNewTaskText(event.target.value);
   }
 
   return (
@@ -54,6 +59,8 @@ export function App(props) {
           <textarea
             name="task"
             placeholder='Adicione uma nova tarefa'
+            value={newTaskText}
+            onChange={handleNewTaskInput}
           />
 
           <button type='submit'>
