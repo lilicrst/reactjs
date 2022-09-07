@@ -86,6 +86,7 @@ export function App(props) {
             {tasks.map(task => {
               return (
                 <Task
+                  key={task.id}
                   title={task.title}
                 />)
             })}
