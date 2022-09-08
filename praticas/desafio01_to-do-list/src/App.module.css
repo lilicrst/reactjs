@@ -57,7 +57,7 @@
   transition: background-color 0.1s;
 }
 
-.taskForm button:hover {
+.taskForm button:not(:disabled):hover {
   background: var(--blue-200);
 }
 

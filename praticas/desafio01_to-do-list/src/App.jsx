@@ -16,7 +16,7 @@ export function App(props) {
       {
         id: uuidv4(),
         title: 'Problema "Each child in a list should have a unique key prop" (ver no console)',
-        isComplete: false
+        isComplete: true
       },      
       {
         id: uuidv4(),
@@ -71,9 +71,10 @@ export function App(props) {
             placeholder='Adicione uma nova tarefa'
             value={newTaskText}
             onChange={handleNewTaskInput}
+            required
           />
 
-          <button type='submit'>
+          <button type='submit' disabled={newTaskText.length == 0}>
             Criar
             <PlusCircle size={19} weight="bold" />
           </button>
