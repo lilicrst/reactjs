@@ -49,6 +49,16 @@ export function App(props) {
     setNewTaskText(event.target.value);
   }
 
+  function deleteTask(taskToDelete) {
+    const tasksWithoutDeleteOne = tasks.filter(task => {
+      return (
+        task.id !== taskToDelete)
+    })
+
+    console.log(tasksWithoutDeleteOne)
+    setTasks(tasksWithoutDeleteOne);
+  }
+
   return (
     <div>
       <Header />
@@ -87,7 +97,9 @@ export function App(props) {
               return (
                 <Task
                   key={task.id}
+                  id={task.id}
                   title={task.title}
+                  onDeleteTask={deleteTask}
                 />)
             })}
           </main>

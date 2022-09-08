@@ -1,11 +1,12 @@
 import { Circle, Trash } from 'phosphor-react';
 import styles from './Task.module.css';
 
-// id: int
-// title: string
-// isComplete: boolean
+export function Task({ title, onDeleteTask, id }) {
 
-export function Task({ title }) {
+  function handleDeleteTask(){
+    onDeleteTask(id);
+  }
+
   return (
     <div className={styles.task}>
       <button title='Marcar como concluída' >
@@ -14,7 +15,7 @@ export function Task({ title }) {
       <p>
         {title}
       </p>
-      <button>
+      <button onClick={handleDeleteTask}>
         <Trash className={styles.trashIcon} size={24} weight="light" />
       </button>
     </div>
