@@ -12,12 +12,7 @@ import { useState } from 'react';
 export function App(props) {
 
   const [tasks, setTasks] = useState(
-    [
-      {
-        id: uuidv4(),
-        title: 'Problema "Each child in a list should have a unique key prop" (ver no console)',
-        isComplete: true
-      },      
+    [      
       {
         id: uuidv4(),
         title: "Deixar css do checkIcon de acordo com o estado",
@@ -30,7 +25,7 @@ export function App(props) {
       },
       {
         id: uuidv4(),
-        title: "Fazer js dos contadores",
+        title: "Fazer função dos contadores",
         isComplete: false
       }
     ]
@@ -39,7 +34,8 @@ export function App(props) {
   const [newTaskText, setNewTaskText] = useState('')
 
   const [taskDone, setTaskDone] = useState(false);
-  // ainda não sei o que esse use state tem que fazer ou monitorar, mas vou descobrir depois do banho
+  // ainda não sei o que esse use state tem que fazer ou monitorar, mas vou descobrir
+  // o isComplete está mudando a cada click, mas não tá sendo monitorado. Dá pra ver no Elements do Console que ele guarda o valor inicial do isComplete
 
   function handleCreateNewTask() {
     event.preventDefault()
@@ -55,16 +51,25 @@ export function App(props) {
   function deleteTask(taskToDelete) {
     const tasksWithoutDeleteOne = tasks.filter(task => {
       return (
-        task.id !== taskToDelete)
+        task.id !== taskToDelete
+      )
     })
 
-    console.log(tasksWithoutDeleteOne)
     setTasks(tasksWithoutDeleteOne);
   }
 
-  function taskDone(taskToMark) {
-    // função para procurar a task que tem o id que eu to enviando e alterar o valor do atributo isComplete
+  function markTask(idTaskToMark) {
+    console.log(idTaskToMark);
+    const changeStateOffTask = tasks.map(task => {
+      if (task.id == idTaskToMark) {
+        console.log(task.isComplete)
+        task.isComplete = !task.isComplete
+        console.log("mudou para:")
+        console.log(task.isComplete)
+      }
+    })
   }
+
 
   return (
     <div>
@@ -107,8 +112,9 @@ export function App(props) {
                   key={task.id}
                   id={task.id}
                   title={task.title}
+                  isComplete={task.isComplete}
                   onDeleteTask={deleteTask}
-                  onTaskDone={taskDone}
+                  onTaskDone={markTask}
                 />)
             })}
           </main>
