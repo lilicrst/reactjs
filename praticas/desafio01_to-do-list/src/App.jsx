@@ -38,6 +38,9 @@ export function App(props) {
 
   const [newTaskText, setNewTaskText] = useState('')
 
+  const [taskDone, setTaskDone] = useState(false);
+  // ainda não sei o que esse use state tem que fazer ou monitorar, mas vou descobrir depois do banho
+
   function handleCreateNewTask() {
     event.preventDefault()
     
@@ -57,6 +60,10 @@ export function App(props) {
 
     console.log(tasksWithoutDeleteOne)
     setTasks(tasksWithoutDeleteOne);
+  }
+
+  function taskDone(taskToMark) {
+    // função para procurar a task que tem o id que eu to enviando e alterar o valor do atributo isComplete
   }
 
   return (
@@ -101,6 +108,7 @@ export function App(props) {
                   id={task.id}
                   title={task.title}
                   onDeleteTask={deleteTask}
+                  onTaskDone={taskDone}
                 />)
             })}
           </main>
