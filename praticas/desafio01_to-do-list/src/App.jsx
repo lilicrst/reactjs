@@ -3,6 +3,7 @@ import { PlusCircle } from 'phosphor-react';
 
 import { Header } from './components/Header';
 import { Task } from './components/Task';
+import { EmptyList } from './components/EmptyList'
 
 import './global.css';
 import styles from './App.module.css';
@@ -12,17 +13,7 @@ import { useState } from 'react';
 export function App(props) {
 
   const [tasks, setTasks] = useState(
-    [
-      {
-        id: uuidv4(),
-        title: "Achar equivalente do EmptyList pra o map do React",
-        isComplete: false
-      },
-      {
-        id: uuidv4(),
-        title: "Fazer css da lista vazia",
-        isComplete: false
-      },
+    [      
       {
         id: uuidv4(),
         title: "Fazer função dos contadores",
@@ -32,10 +23,6 @@ export function App(props) {
   )
 
   const [newTaskText, setNewTaskText] = useState('')
-
-  const [taskDone, setTaskDone] = useState(false);
-  // ainda não sei o que esse use state tem que fazer ou monitorar, mas vou descobrir
-  // o isComplete está mudando a cada click, mas não tá sendo monitorado. Dá pra ver no Elements do Console que ele guarda o valor inicial do isComplete
 
   function handleCreateNewTask() {
     event.preventDefault()
@@ -66,7 +53,13 @@ export function App(props) {
     })
   }
 
-  
+  function emptyTaskList() {
+    if (tasks.length <= 0) {
+      return (        
+        <EmptyList />
+      )
+    }
+  }
 
 
   return (
@@ -101,9 +94,9 @@ export function App(props) {
               <strong>Concluídas</strong>
               <span className={styles.counter}>2 de 5</span>
             </div>
-          </header>
+          </header>        
 
-          <main>
+          <main>           
             {tasks.map(task => {
               return (
                 <Task
@@ -115,6 +108,7 @@ export function App(props) {
                   onTaskDone={markTask}
                 />)
             })}
+            {emptyTaskList()}
           </main>
 
         </div>
