@@ -12,10 +12,10 @@ import { useState } from 'react';
 export function App(props) {
 
   const [tasks, setTasks] = useState(
-    [      
+    [
       {
         id: uuidv4(),
-        title: "Deixar css do checkIcon de acordo com o estado",
+        title: "Achar equivalente do EmptyList pra o map do React",
         isComplete: false
       },
       {
@@ -39,8 +39,8 @@ export function App(props) {
 
   function handleCreateNewTask() {
     event.preventDefault()
-    
-    setTasks([...tasks, {id: uuidv4(), title: newTaskText, isComplete: false}]);
+
+    setTasks([...tasks, { id: uuidv4(), title: newTaskText, isComplete: false }]);
     setNewTaskText('');
   }
 
@@ -59,16 +59,14 @@ export function App(props) {
   }
 
   function markTask(idTaskToMark) {
-    console.log(idTaskToMark);
     const changeStateOffTask = tasks.map(task => {
       if (task.id == idTaskToMark) {
-        console.log(task.isComplete)
         task.isComplete = !task.isComplete
-        console.log("mudou para:")
-        console.log(task.isComplete)
       }
     })
   }
+
+  
 
 
   return (
