@@ -8,21 +8,30 @@ import { EmptyList } from './components/EmptyList'
 import './global.css';
 import styles from './App.module.css';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 
 export function App(props) {
 
   const [tasks, setTasks] = useState(
-    [      
+    [
       {
         id: uuidv4(),
-        title: "Fazer função dos contadores",
+        title: "Monitorar o 'doneTaskCounter' nas tasks excluídas",
         isComplete: false
       }
     ]
   )
 
   const [newTaskText, setNewTaskText] = useState('')
+
+  const [taskCounter, setTaskCounter] = useState(0)
+
+  const [doneTaskCounter, setDoneTaskCounter] = useState(0)
+
+  useEffect(() => {
+    setTaskCounter(tasks.length);
+  }, [tasks]);
 
   function handleCreateNewTask() {
     event.preventDefault()
@@ -42,7 +51,7 @@ export function App(props) {
       )
     })
 
-    setTasks(tasksWithoutDeleteOne);
+    setTasks(tasksWithoutDeleteOne);    
   }
 
   function markTask(idTaskToMark) {
@@ -51,14 +60,20 @@ export function App(props) {
         task.isComplete = !task.isComplete
       }
     })
+    catDoneTaskNumber();
   }
 
   function emptyTaskList() {
     if (tasks.length <= 0) {
-      return (        
+      return (
         <EmptyList />
       )
     }
+  }
+
+  function catDoneTaskNumber() {
+    const number = tasks.filter(task => task.isComplete == true)
+    setDoneTaskCounter(number.length);
   }
 
 
@@ -88,15 +103,15 @@ export function App(props) {
           <header>
             <div className={styles.createdTaskInfo}>
               <strong>Tarefas criadas</strong>
-              <span className={styles.counter}>5</span>
+              <span className={styles.counter}>{taskCounter}</span>
             </div>
             <div className={styles.completeTaskInfo}>
               <strong>Concluídas</strong>
-              <span className={styles.counter}>2 de 5</span>
+              <span className={styles.counter}>{doneTaskCounter} de {taskCounter}</span>
             </div>
-          </header>        
+          </header>
 
-          <main>           
+          <main>
             {tasks.map(task => {
               return (
                 <Task
