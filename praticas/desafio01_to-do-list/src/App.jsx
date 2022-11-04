@@ -14,10 +14,15 @@ import { useEffect } from 'react';
 export function App(props) {
 
   const [tasks, setTasks] = useState(
-    [
+    [      
       {
         id: uuidv4(),
-        title: "Monitorar o 'doneTaskCounter' nas tasks excluídas",
+        title: "riscar o texto das tasks concluídas",
+        isComplete: false
+      },
+      {
+        id: uuidv4(),
+        title: "mudar tudo pra ts",
         isComplete: false
       }
     ]
@@ -32,6 +37,10 @@ export function App(props) {
   useEffect(() => {
     setTaskCounter(tasks.length);
   }, [tasks]);
+
+  useEffect(() => {
+    catDoneTaskNumber();
+  }, [tasks])
 
   function handleCreateNewTask() {
     event.preventDefault()

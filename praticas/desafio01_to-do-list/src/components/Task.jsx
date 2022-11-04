@@ -2,20 +2,20 @@ import { Circle, Trash, CheckCircle } from 'phosphor-react';
 import { useState } from 'react';
 import styles from './Task.module.css';
 
-export function Task({ title, onDeleteTask, id, onTaskDone, isComplete }) {  
+export function Task({ title, onDeleteTask, id, onTaskDone, isComplete }) {
 
   const [checkState, setCheckState] = useState(false);
 
-  function handleDeleteTask(){
+  function handleDeleteTask() {
     onDeleteTask(id);
   }
 
-  function handleTaskDone(){    
+  function handleTaskDone() {
     onTaskDone(id);
     setCheckState(!checkState)
   }
 
-  function checkIcon(value){
+  function checkIcon(value) {
     if (checkState == false) {
       return <Circle className={styles.circleIcon} size={22} weight="bold" />
     } else {
@@ -23,14 +23,28 @@ export function Task({ title, onDeleteTask, id, onTaskDone, isComplete }) {
     }
   }
 
+  function textByState(value) {
+    if (checkState == false) {
+      return (
+        <p className={styles.text}>
+          {title}
+        </p>
+      )
+    } else {
+      return (
+        <p className={styles.scratchedText}>
+          {title}
+        </p>
+      )
+    }
+  }
+
   return (
-    <div className={styles.task}>      
-      <button title='Marcar como concluída' onClick={handleTaskDone} value={isComplete}>        
-          { checkIcon(isComplete) }            
+    <div className={styles.task}>
+      <button title='Marcar como concluída' onClick={handleTaskDone} value={isComplete}>
+        {checkIcon(isComplete)}
       </button>
-      <p>
-        {title}
-      </p>
+      {textByState(isComplete)}
       <button onClick={handleDeleteTask}>
         <Trash className={styles.trashIcon} size={24} weight="light" />
       </button>
